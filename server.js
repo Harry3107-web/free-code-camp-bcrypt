@@ -9,8 +9,17 @@ const saltRounds = 12;
 const myPlaintextPassword = 'sUperpassw0rd!';
 const someOtherPlaintextPassword = 'pass123';
 
-
+// Define a GET route for the root URL
+app.get('/', (req, res) => {
+  res.send('Hello World!'); // Sends a text response back to the client
+});
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
+bcrypt.hash('MyplaintextPassword', saltRounds, (err, hash) => {
+    console.log(hash)
+   bcrypt.compare('MyplaintextPassword', hash, (err, res) => {
+    console.log(res)
+  });
+});
 
 
 
